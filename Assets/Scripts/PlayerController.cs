@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 // using ActionCode2D.Renderers;
 using UnityEngine.Experimental.Input;
+using System;
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector]
+    public Player PlayerModel;
     public MasterInput Controls;
     public AudioClip HitSound;
-    public GameObject BulletPrefab, DeathEffect;
-    public Transform BulletPoint, BulletPointUp, BulletPointDown, BulletPointWall, BulletPoints;
-    public ParticleSystem ChargedJumpEffect;
-    public float MaxHealth, Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
+    public GameObject DeathEffect;
+    public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
     RectTransform HeathFill;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb;
     Vector2 _direction;
     bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
-    public bool HaveChargedJump, HaveWallJump;
     float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight, _currentHealth;
     int JumpTimes = 1;
     Animator anim;
@@ -36,8 +36,10 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        Controls.Player.Jump.performed += ctx => Jump();
+        //Tries to load player data
+        LoadData();
 
+        Controls.Player.Jump.performed += ctx => Jump();
         //Move
         Controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         //Stop moving
@@ -55,13 +57,14 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _currentHealth = PlayerModel.MaxHealth;
         HeathFill = GameObject.FindWithTag("HealthFill").GetComponent<RectTransform>();
-        _currentHealth = MaxHealth;
         UpdateHealth();
     }
 
     void Update()
     {
+
     }
 
     void FixedUpdate()
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(x, _rb.velocity.y);
         //Add force on Y
         _rb.AddForce(new Vector2(0, y), ForceMode2D.Force);
- 
+
         JumpUpdate();
         WallJumpUpdate();
 
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
         _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, 0.5f, _raycastLayerMask);
 
         //Checl if player is near a wall
-        if (HaveWallJump)
+        if (PlayerModel.HaveWallJump)
         {
             _isNearWallLeft = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), -Vector3.right, 0.13f, _raycastLayerMask);
             _isNearWallRight = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), Vector3.right, 0.13f, _raycastLayerMask);
@@ -98,13 +101,29 @@ public class PlayerController : MonoBehaviour
         HandleWallAnimation();
     }
 
+
+    //Load Player Data
+    public void LoadData()
+    {
+        try
+        {
+            PlayerModel = SaveManager.Instance.LoadModel<Player>("PlayerData.dat");
+            transform.position = PlayerModel.CurrentPosition;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            PlayerModel = new Player();
+        }
+    }
+
     void Jump()
     {
         //Toggle jump
         _btnJumpPressed = !_btnJumpPressed;
 
         //Check if button is pressed and player is on ground and have ability to double jump and is not sliding down walls
-        if (_btnJumpPressed && JumpTimes > 0 && !_isGrounded && HaveChargedJump && !_isWallClinging)
+        if (_btnJumpPressed && JumpTimes > 0 && !_isGrounded && PlayerModel.HaveChargedJump && !_isWallClinging)
         {
             JumpTimes = 0;
             // _rb.AddForce(new Vector2(_direction.x, _direction.y/2), ForceMode2D.Impulse);
@@ -174,7 +193,6 @@ public class PlayerController : MonoBehaviour
                 var lookDirection = _direction.x > 0 ? 0 : 180;
                 var flipX = _direction.x > 0 ? false : true;
                 _spriteRenderer.flipX = flipX;
-                BulletPoints.eulerAngles = new Vector2(0, lookDirection);
             }
         }
         else
@@ -192,10 +210,10 @@ public class PlayerController : MonoBehaviour
         switch (powerToEnable)
         {
             case PlayerPower.ChargedJump:
-                HaveChargedJump = true;
+                PlayerModel.HaveChargedJump = true;
                 break;
             case PlayerPower.WallJump:
-                HaveWallJump = true;
+                PlayerModel.HaveWallJump = true;
                 break;
         }
     }
@@ -249,7 +267,7 @@ public class PlayerController : MonoBehaviour
     //Update heath ui
     void UpdateHealth()
     {
-        HeathFill.localScale = new Vector2(_currentHealth / MaxHealth, HeathFill.localScale.y);
+        HeathFill.localScale = new Vector2(_currentHealth / PlayerModel.MaxHealth, HeathFill.localScale.y);
     }
 
     //Animate player moving
