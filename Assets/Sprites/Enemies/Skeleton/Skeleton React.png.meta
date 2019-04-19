@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 0d9d9c862e7279042ae024cd9e8adf3f
+guid: 6ce470ea94a1bf0499e44526917fa4f8
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: jump_0
-    21300002: jump_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,51 +93,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: jump_0
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 2
-        width: 23
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1239083512e4b34e8712b15c08faf78
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump_1
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 2
-        width: 22
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b1a004bc0f507840903ff2b153bb4ab
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 729f51c94b3101c4199ce1cb6542a54d
+    spriteID: 81158f5c3caf56945ae171df62b8b556
     vertices: []
     indices: 
     edges: []

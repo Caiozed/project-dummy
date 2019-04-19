@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
+    [HideInInspector]
+    public bool IsAttacking = false;
     RectTransform HeathFill;
     AudioSource audioSource;
     Rigidbody2D _rb;
-    Vector2 _direction;
+    Vector2 _direction, _directionBeforeAttack;
     bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
     float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight, _currentHealth;
     int JumpTimes = 1;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
         LoadData();
 
         Controls.Player.Jump.performed += ctx => Jump();
+        Controls.Player.Attack.performed += ctx => Attack();
         //Move
         Controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         //Stop moving
@@ -159,6 +162,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Controls player Attack
+    void Attack()
+    {
+        if (!IsAttacking && _isGrounded)
+        {
+            _directionBeforeAttack = _direction;
+            _direction = Vector2.zero;
+            _direction = Vector2.zero;
+            IsAttacking = true;
+            anim.SetTrigger("Attack");
+        }
+    }
+
+    public void ResetDirectionAfterAttack()
+    {
+        _direction = _directionBeforeAttack;
+    }
+
     void WallJumpUpdate()
     {
         //WallJump
@@ -177,6 +198,7 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector2 direction)
     {
+        if (IsAttacking) return;
         // if (PauseManager.Instance._isPaused) return;
 
         _isDucking = direction.y < 0 ? true : false;

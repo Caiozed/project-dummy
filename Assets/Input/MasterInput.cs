@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/MasterInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/MasterInput.inputactions'
 
 using System;
 using UnityEngine;
@@ -70,14 +70,14 @@ public class MasterInput : InputActionAssetReference
             return new PlayerActions(this);
         }
     }
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
+    private int m_KeyboardmouseSchemeIndex = -1;
+    public InputControlScheme KeyboardmouseScheme
     {
         get
 
         {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.GetControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
+            if (m_KeyboardmouseSchemeIndex == -1) m_KeyboardmouseSchemeIndex = asset.GetControlSchemeIndex("Keyboard + mouse");
+            return asset.controlSchemes[m_KeyboardmouseSchemeIndex];
         }
     }
     private int m_ControllerSchemeIndex = -1;

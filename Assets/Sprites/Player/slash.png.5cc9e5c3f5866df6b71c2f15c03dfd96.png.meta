@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: 0d9d9c862e7279042ae024cd9e8adf3f
+guid: 27244d8bf0a29a045a122c5aae61228f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: jump_0
-    21300002: jump_1
+    21300000: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_0
+    21300002: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_1
+    21300004: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_2
+    21300006: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_3
+    21300008: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_4
+    21300010: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -97,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump_0
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 2
-        width: 23
-        height: 29
+        x: 57
+        y: 29
+        width: 28
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +115,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1239083512e4b34e8712b15c08faf78
+      spriteID: 64f72aed3f7f17d408bc396bc336cde3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_1
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 2
-        width: 22
-        height: 29
+        x: 167
+        y: 54
+        width: 28
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,7 +135,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b1a004bc0f507840903ff2b153bb4ab
+      spriteID: 88296be04f13b474e8fc37c023983151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_2
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 12
+        width: 52
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c079dc57e4b5b384dbde2671788e09f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_3
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 11
+        width: 52
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c324d42fa62f4748920255b67ccd34b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 11
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bf42951b9a0b04b894ace964e196f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash.png.5cc9e5c3f5866df6b71c2f15c03dfd96_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 12
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee69a58cecc6adc4f8cdd513a6c2defd
       vertices: []
       indices: 
       edges: []
@@ -139,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 729f51c94b3101c4199ce1cb6542a54d
+    spriteID: fc6f58958486cec47b37f123bfd24dc0
     vertices: []
     indices: 
     edges: []
