@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int Damage = 1;
     Animator anim;
     void Start()
     {

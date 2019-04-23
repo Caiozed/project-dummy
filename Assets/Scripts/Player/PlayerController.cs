@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public Player PlayerModel;
     public MasterInput Controls;
     public AudioClip HitSound;
-    public GameObject DeathEffect;
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
@@ -22,14 +21,15 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb;
     Vector2 _direction, _directionBeforeAttack;
     bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
-    float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight, _currentHealth;
-    int JumpTimes = 1;
+    float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight;
+    int JumpTimes = 1, _currentHealth;
     Animator anim;
     CircleCollider2D _circleCollider;
     SpriteRenderer _spriteRenderer;
     EdgeCollider2D _edgeCollider;
     BoxCollider2D _boxCollider;
     LineRenderer _lineRenderer;
+    public static PlayerController PlayerCTRL;
     public enum PlayerPower
     {
         ChargedJump,
@@ -38,8 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        //Tries to load player data
-        LoadData();
+        PlayerCTRL = this;
 
         Controls.Player.Jump.performed += ctx => Jump();
         Controls.Player.Attack.performed += ctx => Attack();
@@ -53,6 +52,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //Tries to load player data
+        LoadData();
+
         _rb = GetComponentInChildren<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
@@ -60,9 +62,8 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _currentHealth = PlayerModel.MaxHealth;
-        HeathFill = GameObject.FindWithTag("HealthFill").GetComponent<RectTransform>();
         UpdateHealth();
+        HealthManager.Instance.FadeIn();
     }
 
     void Update()
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(e.Message);
             PlayerModel = new Player();
         }
+        _currentHealth = PlayerModel.MaxHealth;
     }
 
     void Jump()
@@ -241,7 +243,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Calculate and animate player taking damage 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         //Checks if player is invulnerable
         if (!_isVulnerable)
@@ -249,19 +251,21 @@ public class PlayerController : MonoBehaviour
             //Update health variable
             _currentHealth -= damage;
 
-            //Update health ui
+            //Update health
             UpdateHealth();
 
             //Turn player invulnerable
             _isVulnerable = true;
-            gameObject.layer = 11;
+            // gameObject.layer = 11;
 
             //Checks for player health 
             if (_currentHealth <= 0)
             {
                 //Kills player
-                gameObject.SetActive(false);
-                Instantiate(DeathEffect, anim.transform.position, transform.rotation);
+                anim.SetBool("IsDead", true);
+                this.enabled = false;
+                StartCoroutine("Restart");
+                // gameObject.SetActive(false);
             }
             else
             {
@@ -283,13 +287,27 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(.2f);
         }
         _isVulnerable = false;
-        gameObject.layer = 2;
+        // gameObject.layer = 2;
     }
 
-    //Update heath ui
+    //Update heath
     void UpdateHealth()
     {
-        HeathFill.localScale = new Vector2(_currentHealth / PlayerModel.MaxHealth, HeathFill.localScale.y);
+        HealthManager.Instance.SetHealth(_currentHealth);
+    }
+
+    IEnumerator Restart()
+    {
+        HealthManager.Instance.FadeOut();
+        yield return new WaitForSeconds(3f);
+
+        LoadData();
+        yield return new WaitForSeconds(1f);
+
+        HealthManager.Instance.FadeIn();
+        UpdateHealth();
+        this.enabled = true;
+        anim.SetBool("IsDead", false);
     }
 
     //Animate player moving
@@ -350,6 +368,25 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         Controls.Disable();
+    }
+
+    //Chack for collisions
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var damage = other.transform.GetComponent<EnemyController>().Damage;
+            TakeDamage(damage);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var damage = other.transform.GetComponent<EnemyController>().Damage;
+            TakeDamage(damage);
+        }
     }
 }
 

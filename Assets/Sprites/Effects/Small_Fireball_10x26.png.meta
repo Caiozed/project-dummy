@@ -1,0 +1,1370 @@
+fileFormatVersion: 2
+guid: e2204c73fb5524043bfdbedfcd7e7ae7
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Small_Fireball_10x26_0
+    21300002: Small_Fireball_10x26_1
+    21300004: Small_Fireball_10x26_2
+    21300006: Small_Fireball_10x26_3
+    21300008: Small_Fireball_10x26_4
+    21300010: Small_Fireball_10x26_5
+    21300012: Small_Fireball_10x26_6
+    21300014: Small_Fireball_10x26_7
+    21300016: Small_Fireball_10x26_8
+    21300018: Small_Fireball_10x26_9
+    21300020: Small_Fireball_10x26_10
+    21300022: Small_Fireball_10x26_11
+    21300024: Small_Fireball_10x26_12
+    21300026: Small_Fireball_10x26_13
+    21300028: Small_Fireball_10x26_14
+    21300030: Small_Fireball_10x26_15
+    21300032: Small_Fireball_10x26_16
+    21300034: Small_Fireball_10x26_17
+    21300036: Small_Fireball_10x26_18
+    21300038: Small_Fireball_10x26_19
+    21300040: Small_Fireball_10x26_20
+    21300042: Small_Fireball_10x26_21
+    21300044: Small_Fireball_10x26_22
+    21300046: Small_Fireball_10x26_23
+    21300048: Small_Fireball_10x26_24
+    21300050: Small_Fireball_10x26_25
+    21300052: Small_Fireball_10x26_26
+    21300054: Small_Fireball_10x26_27
+    21300056: Small_Fireball_10x26_28
+    21300058: Small_Fireball_10x26_29
+    21300060: Small_Fireball_10x26_30
+    21300062: Small_Fireball_10x26_31
+    21300064: Small_Fireball_10x26_32
+    21300066: Small_Fireball_10x26_33
+    21300068: Small_Fireball_10x26_34
+    21300070: Small_Fireball_10x26_35
+    21300072: Small_Fireball_10x26_36
+    21300074: Small_Fireball_10x26_37
+    21300076: Small_Fireball_10x26_38
+    21300078: Small_Fireball_10x26_39
+    21300080: Small_Fireball_10x26_40
+    21300082: Small_Fireball_10x26_41
+    21300084: Small_Fireball_10x26_42
+    21300086: Small_Fireball_10x26_43
+    21300088: Small_Fireball_10x26_44
+    21300090: Small_Fireball_10x26_45
+    21300092: Small_Fireball_10x26_46
+    21300094: Small_Fireball_10x26_47
+    21300096: Small_Fireball_10x26_48
+    21300098: Small_Fireball_10x26_49
+    21300100: Small_Fireball_10x26_50
+    21300102: Small_Fireball_10x26_51
+    21300104: Small_Fireball_10x26_52
+    21300106: Small_Fireball_10x26_53
+    21300108: Small_Fireball_10x26_54
+    21300110: Small_Fireball_10x26_55
+    21300112: Small_Fireball_10x26_56
+    21300114: Small_Fireball_10x26_57
+    21300116: Small_Fireball_10x26_58
+    21300118: Small_Fireball_10x26_59
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 131
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212deadce99258d488a7277b9428cb4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 131
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b57cef3e515f724983ceb9c8c040a04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 131
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13c1e87c3797d6499367fc298ee7288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 131
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41f462db1f738d4ba9e14100baac104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 131
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f124ccc8be19d88498a05562d3d6d26e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 131
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deedbf050850f3488427fb6c03473c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 130
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4243fe481c0bda45a524b7355ced451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_7
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 131
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2817d70c758dcc0439f82abf460898b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 131
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846d03716c2f84f4bbcb175f3275c3fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_9
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 131
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c0b3b5e94c48f449dabfd1775d0690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f5612a9d9a7c345aa99b9375371c3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_11
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 105
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71acc92b06998d046b508ac61803460a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 102
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb67f86c3904ba04fb33f40510bd749a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_13
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 105
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be003de92e77e3449b1b748ec36ca0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 105
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff9b7cd5b290254cad3b23a387d3dea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_15
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 105
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097b8319607f9ab41b062428d7565d0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_16
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 105
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8385765ca42e04881bc4694ffd1b0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_17
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 105
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e86b4fef63f3f41924ca1193b41673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_18
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 106
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88cfe8fe762cacb44b14f5f3b819f9c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 105
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d09264651dc9954b9c783e3f3529a3e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 76
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec1e1235a7711c43b02de062dfe1ce5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_21
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 80
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b8ffc254b9ba24e9f1d80ffd25a22b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_22
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 79
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e38a9af045f98d409318c45e3bd84a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_23
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 78
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b02b4d43ce5dec4bb8746f4f60127d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_24
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 79
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2391257e1ec554e448a2e8dd06826fb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_25
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 79
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5154390a9c56444a729b04007c4465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_26
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 79
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b208a45cecdf045adb4b9d670150d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_27
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 79
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b66ada431e5df04a8d932c60bd2dd20
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_28
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 79
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230e1d3efc8d2de48a3630f598d5007a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_29
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 79
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814bc87146c70154388699f528c9f22a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 52
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c029950b64106df4381255769ae78a4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_31
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 53
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07573f24e53e8714297e123209563a06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_32
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 53
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471dce9b89bce8a4f94514ab2eeeff39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_33
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 53
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3932c16dd5a27c4dace13d8d89baaa0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_34
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 53
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885ce0be57941484b9039f549f56cf44
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_35
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 53
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea42a2cc82467ac4aa00406d3d39d872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_36
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 53
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c246de68f34389c4eb1b71f6409b016f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_37
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 52
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba11626e07d452c43b9f2378e8a60c37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_38
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 53
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761ab4afc1a1f3c459b88fff1e8a61ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_39
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 54
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048400e3a5fcfb347a817c25789da5d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 27
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d63e9e5e4a2ee42ae68f44dab5e6a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_41
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 27
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f74864501a7456418b59bf5341c3d70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_42
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 28
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27dbdc77f96af5445b174b405b22eb30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_43
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 27
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f782d8199583c4da1b0c13994a054d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_44
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 27
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6044eb97915e44f9b34338d5b2701d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_45
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 24
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944d9f15fdfe7a5459cbd63d077bd872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_46
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 27
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47a6bd86f8e3d0499cea8f49ebcc77d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_47
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 24
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a28dab29573d8b4198338ae297f2492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_48
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 25
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc124b9e21572d042abab5fd1effced8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_49
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 27
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f17d3372bdb11a4885ae7ee41431b1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_50
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fddc3e979df076439c943d1a1f9ed51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_51
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac0413985bcc2344810f491392689e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_52
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8867a5b182ff6f04d83fbbc4ab5646da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_53
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e882ebca36743834aad928fe3b412cf3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_54
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8901ad0f217fd1c42bee53fcb2e951ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_55
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc83db37b4c3b7c4fb42167502cbcb9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_56
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f871852b84c6646a20cbeb62b6d59a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_57
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9f9b652daaa894ba16d837a2fea34a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_58
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e46a63852c6fa4f81cff20ea50607b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Fireball_10x26_59
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0fe17a34f96394a8b46c4bb89c8fd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fddace3aacd9ee54ca0cdea9ba61ef38
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

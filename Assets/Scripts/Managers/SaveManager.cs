@@ -41,8 +41,7 @@ public class SaveManager : MonoBehaviour
     //Load Model
     public T LoadModel<T>(string path)
     {
-        // if (!File.Exists(rootPath)) { Debug.Log(default(T)); return default(T); }
-
+        // // if (!File.Exists(rootPath)) { Debug.Log(default(T)); return default(T); }
         using (StreamReader streamReader = File.OpenText(Path.Combine(rootPath, path)))
         {
             string jsonString = streamReader.ReadToEnd();
