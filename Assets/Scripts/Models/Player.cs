@@ -8,6 +8,7 @@ public class Player
     public bool HaveChargedJump;
     public bool HaveWallJump;
     public int MaxHealth = 3;
+    public int Damage = 1;
     // public Vector3 CurrentHealth;
 
 }

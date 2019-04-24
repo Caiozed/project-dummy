@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Player PlayerModel;
     public MasterInput Controls;
     public AudioClip HitSound;
+    public Transform EffectsContainer;
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     Vector2 _direction, _directionBeforeAttack;
     bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
     float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight;
-    int JumpTimes = 1, _currentHealth;
+    int JumpTimes = 1, _currentHealth, _currentDamage;
     Animator anim;
     CircleCollider2D _circleCollider;
     SpriteRenderer _spriteRenderer;
@@ -120,6 +121,7 @@ public class PlayerController : MonoBehaviour
             PlayerModel = new Player();
         }
         _currentHealth = PlayerModel.MaxHealth;
+        _currentDamage = PlayerModel.Damage;
     }
 
     void Jump()
@@ -217,6 +219,12 @@ public class PlayerController : MonoBehaviour
                 var lookDirection = _direction.x > 0 ? 0 : 180;
                 var flipX = _direction.x > 0 ? false : true;
                 _spriteRenderer.flipX = flipX;
+
+                //Change effect Rotation
+                if (_spriteRenderer.flipX)
+                    EffectsContainer.transform.eulerAngles = new Vector3(0, 180, 0);
+                else
+                    EffectsContainer.transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
         else
@@ -370,7 +378,13 @@ public class PlayerController : MonoBehaviour
         Controls.Disable();
     }
 
-    //Chack for collisions
+    //Returns current damage
+    public int GetDamage()
+    {
+        return _currentDamage;
+    }
+
+    //Check for collisions
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.CompareTag("Enemy"))

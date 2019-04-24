@@ -6,10 +6,17 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
     public int Damage = 1;
+    public int MaxHealth = 1;
+    int _currentHealth;
     Animator anim;
+    Rigidbody2D _rb;
+    Collider2D _collider;
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        _rb = GetComponentInChildren<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
+        _currentHealth = MaxHealth;
     }
 
     // Update is called once per frame
@@ -18,16 +25,26 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        anim.SetTrigger("Hit");
+        _currentHealth -= damage;
+
+        if (_currentHealth > 0)
+            anim.SetTrigger("Hit");
+        else
+        {
+            anim.SetTrigger("Dead");
+            this.enabled = false;
+            _rb.isKinematic = true;
+            _collider.enabled = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("PlayerWeapon"))
         {
-            TakeDamage();
+            TakeDamage(other.transform.root.GetComponent<PlayerController>().GetDamage());
         }
     }
 }

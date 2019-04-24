@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.33333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -42,7 +42,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: EffectsSlash
+    path: Effects/EffectsSlash
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -61,11 +61,11 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
+      value: {fileID: 21300004, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
     - time: 0.083333336
       value: {fileID: 21300006, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
     attribute: m_Sprite
-    path: EffectsSlash
+    path: Effects/EffectsSlash
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -76,7 +76,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1788959183
+      path: 114730168
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -90,7 +90,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 1788959183
+      path: 114730168
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -101,7 +101,7 @@ AnimationClip:
     - {fileID: 21300112, guid: 7d6c59d1d8d41a04fb69d3abfc736cf1, type: 3}
     - {fileID: 21300114, guid: 7d6c59d1d8d41a04fb69d3abfc736cf1, type: 3}
     - {fileID: 21300116, guid: 7d6c59d1d8d41a04fb69d3abfc736cf1, type: 3}
-    - {fileID: 21300002, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
+    - {fileID: 21300004, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
     - {fileID: 21300006, guid: 27244d8bf0a29a045a122c5aae61228f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -137,7 +137,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.33333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -149,7 +149,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: EffectsSlash
+    path: Effects/EffectsSlash
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
