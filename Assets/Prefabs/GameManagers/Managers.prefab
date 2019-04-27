@@ -263,7 +263,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 42346750137821538}
-  - component: {fileID: 42346750137821541}
   - component: {fileID: 5987643838377999229}
   - component: {fileID: 42346751077769585}
   - component: {fileID: 42346751077769584}
@@ -289,18 +288,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &42346750137821541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42346750137821540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca0fd9885af17e46a3d7786930e574d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5987643838377999229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +317,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 42346751077769584}
+  SaveData:
+    Slot: 0
+    UpdatedOn: 
+    PlayerData:
+      CurrentPosition: {x: 0, y: 0, z: 0}
+      HaveChargedJump: 0
+      HaveWallJump: 0
+      MaxHealth: 3
+      Damage: 1
   LevelText: {fileID: 454138887}
 --- !u!95 &42346751077769584
 Animator:

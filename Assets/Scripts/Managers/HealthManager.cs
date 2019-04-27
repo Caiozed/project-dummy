@@ -15,12 +15,7 @@ public class HealthManager : MonoBehaviour
     //Creates instance
     void Awake()
     {
-        if (Instance != null)
-            GameObject.Destroy(Instance);
-        else
-            Instance = this;
-
-        DontDestroyOnLoad(this);
+        Instance = this;
     }
     // Update is called once per frame
     void Update()

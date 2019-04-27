@@ -28,9 +28,11 @@ public class SavePoint : MonoBehaviour
             //Update playerModel position
             var player = other.transform.gameObject.GetComponent<PlayerController>();
             player.PlayerModel.CurrentPosition = transform.position;
+            SaveManager.Instance.SaveData.PlayerData = player.PlayerModel;
 
             //Save player data
-            SaveManager.Instance.SaveModel<Player>(player.PlayerModel, "PlayerData.dat");
+            SaveManager.Instance.SaveModel<SaveData>(SaveManager.Instance.SaveData,
+            $"SaveData{SaveManager.Instance.SaveData.Slot}.dat");
         }
     }
 }

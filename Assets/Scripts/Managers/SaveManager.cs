@@ -6,6 +6,7 @@ using System.IO;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
+    public SaveData SaveData;
     string rootPath;
 
     //Creates instance
@@ -22,7 +23,7 @@ public class SaveManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
 
     }

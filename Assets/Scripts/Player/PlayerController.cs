@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         try
         {
-            PlayerModel = SaveManager.Instance.LoadModel<Player>("PlayerData.dat");
+            PlayerModel = SaveManager.Instance.SaveData.PlayerData;
             transform.position = PlayerModel.CurrentPosition;
         }
         catch (Exception e)
