@@ -10,23 +10,33 @@ public class MenuController : MonoBehaviour
     List<SaveData> SaveSlots;
     public Transform LoadSlotsContainer;
     public GameObject LoadBtnPrefab;
+    public List<GameObject> Slots;
     // Start is called before the first frame update
     void Start()
     {
         SaveSlots = new List<SaveData>();
-        for (int i = 0; i < 3; i++)
-        {
-            if (File.Exists($"{Application.persistentDataPath}/SaveData{i}.dat"))
-                SaveSlots.Add(SaveManager.Instance.LoadModel<SaveData>($"SaveData{i}.dat"));
-        }
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     if (File.Exists($"{Application.persistentDataPath}/SaveData{i}.dat"))
+        //         SaveSlots.Add(SaveManager.Instance.LoadModel<SaveData>($"SaveData{i}.dat"));
+        // }
 
-        for (int i = 0; i < SaveSlots.Count; i++)
+
+        //Check for existing savefiles
+        for (int i = 0; i < Slots.Count; i++)
         {
             int x = i;
-            var gameObj = Instantiate(LoadBtnPrefab, LoadSlotsContainer.position + new Vector3(0, 100 * -i, 0), LoadSlotsContainer.rotation);
-            gameObj.GetComponentInChildren<Text>().text = SaveSlots[i].UpdatedOn;
-            gameObj.GetComponentInChildren<Button>().onClick.AddListener(delegate { LoadGame(x); });
-            gameObj.transform.SetParent(LoadSlotsContainer);
+            if (File.Exists($"{Application.persistentDataPath}/SaveData{x}.dat"))
+            {
+                var file = SaveManager.Instance.LoadModel<SaveData>($"SaveData{x}.dat");
+                Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n {file.UpdatedOn}";
+                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { LoadGame(x); });
+            }
+            else
+            {
+                Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n New Game";
+                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { NewGame(x); });
+            }
         }
     }
 
@@ -40,12 +50,12 @@ public class MenuController : MonoBehaviour
     {
         var savedata = new SaveData(slot);
         SaveManager.Instance.SaveModel<SaveData>(savedata, $"SaveData{slot}.dat");
+        SceneManager.LoadScene(1);
     }
 
     public void LoadGame(int slot)
     {
         SaveManager.Instance.SaveData = SaveManager.Instance.LoadModel<SaveData>($"SaveData{slot}.dat");
-        Debug.Log(SaveManager.Instance.SaveData.Slot);
         SceneManager.LoadScene(1);
     }
 }

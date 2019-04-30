@@ -11,7 +11,7 @@ public class SaveData
 
     public SaveData(int slot = 0)
     {
-        UpdatedOn = $"{DateTime.Now.Day}/{DateTime.Now.Month}/{DateTime.Now.Year}-{DateTime.Now.Hour}:{DateTime.Now.Minute}";
+        UpdatedOn = Utils.TimeNow();
         this.Slot = slot;
         PlayerData = new Player();
     }
