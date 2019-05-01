@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -317,15 +317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 42346751077769584}
-  SaveData:
-    Slot: 0
-    UpdatedOn: 
-    PlayerData:
-      CurrentPosition: {x: 0, y: 0, z: 0}
-      HaveChargedJump: 0
-      HaveWallJump: 0
-      MaxHealth: 3
-      Damage: 1
   LevelText: {fileID: 454138887}
 --- !u!95 &42346751077769584
 Animator:

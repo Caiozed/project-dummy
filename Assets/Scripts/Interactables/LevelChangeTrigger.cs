@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class LevelChangeTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     public string AreaName;
+    public CinemachineVirtualCamera FrameCamera;
+    public CinemachineVirtualCamera PreviousCamera;
+    public CinemachineVirtualCamera NextCamera;
     void Start()
     {
 
@@ -21,8 +24,27 @@ public class LevelChangeTrigger : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
+            ChangeCamera();
             MasterManager.Instance.SetText(AreaName);
             MasterManager.Instance.TriggerAnim("LevelTransition");
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            ChangeCamera();
+        }
+    }
+
+
+    public void ChangeCamera()
+    {
+        FrameCamera.enabled = true;
+        if (PreviousCamera != null)
+            PreviousCamera.enabled = false;
+        if (NextCamera != null)
+            NextCamera.enabled = false;
     }
 }
