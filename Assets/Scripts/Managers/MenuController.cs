@@ -7,10 +7,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
+    public Image FadeImage;
+    public float FadeSpeed;
     List<SaveData> SaveSlots;
     public Transform LoadSlotsContainer;
     public GameObject LoadBtnPrefab;
     public List<GameObject> Slots;
+    bool _started = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +34,12 @@ public class MenuController : MonoBehaviour
             {
                 var file = SaveManager.Instance.LoadModel<SaveData>($"SaveData{x}.dat");
                 Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n {file.UpdatedOn}";
-                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { LoadGame(x); });
+                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { StartCoroutine(LoadGame(x)); });
             }
             else
             {
                 Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n New Game";
-                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { NewGame(x); });
+                Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { StartCoroutine(NewGame(x)); });
             }
         }
     }
@@ -43,19 +47,27 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Fade to black
+        if (_started)
+        {
+            FadeImage.color = new Color(0, 0, 0, FadeImage.color.a + FadeSpeed);
+        }
     }
 
-    public void NewGame(int slot)
+    IEnumerator NewGame(int slot)
     {
         var savedata = new SaveData(slot);
         SaveManager.Instance.SaveModel<SaveData>(savedata, $"SaveData{slot}.dat");
-        SceneManager.LoadScene(1);
+        _started = true;
+        yield return new WaitForSeconds(2);
+        LoadingManager.LoadLevel(1);
     }
 
-    public void LoadGame(int slot)
+    IEnumerator LoadGame(int slot)
     {
         SaveManager.Instance.SaveData = SaveManager.Instance.LoadModel<SaveData>($"SaveData{slot}.dat");
-        SceneManager.LoadScene(1);
+        _started = true;
+        yield return new WaitForSeconds(2);
+        LoadingManager.LoadLevel(1);
     }
 }
