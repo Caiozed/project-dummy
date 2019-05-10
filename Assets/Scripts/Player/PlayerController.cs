@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 // using ActionCode2D.Renderers;
-using UnityEngine.Experimental.Input;
 using System;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public Player PlayerModel;
-    public MasterInput Controls;
     public AudioClip HitSound;
     public Transform EffectsContainer;
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
@@ -41,14 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerCTRL = this;
 
-        Controls.Player.Jump.performed += ctx => Jump();
-        Controls.Player.Attack.performed += ctx => Attack();
-        //Move
-        Controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        //Stop moving
 
-        Controls.Player.Movement.cancelled += ctx => { _direction.x = 0; };
-        Controls.Player.Jump.cancelled += ctx => { _btnJumpPressed = false; };
     }
 
     void Start()
@@ -69,7 +60,38 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        var x = Input.GetAxisRaw("Horizontal");
+        var y = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetButton("Jump"))
+        {
+            Jump();
+        }
+        else
+        {
+            _btnJumpPressed = false;
+        }
+
+        if (Input.GetButtonDown("Attack"))
+        {
+            Attack();
+        }
+
+        //Move
+        if (x != 0)
+        {
+            Move(new Vector2(x, y));
+        }
+        else
+        {
+            //Stop moving
+            _direction.x = 0;
+        }
+
+        //Animation updates
+        HandleMoveAnimation();
+        HandleJumpAnimation();
+        HandleWallAnimation();
     }
 
     void FixedUpdate()
@@ -88,7 +110,7 @@ public class PlayerController : MonoBehaviour
         WallJumpUpdate();
 
         //Check if player is on ground
-        _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, 0.5f, _raycastLayerMask);
+        _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, 0.2f, _raycastLayerMask);
 
         //Checl if player is near a wall
         if (PlayerModel.HaveWallJump)
@@ -99,11 +121,6 @@ public class PlayerController : MonoBehaviour
 
         //Reset double jump when on ground
         if (_isGrounded) JumpTimes = 1;
-
-        //Animation updates
-        HandleMoveAnimation();
-        HandleJumpAnimation();
-        HandleWallAnimation();
     }
 
 
@@ -328,20 +345,7 @@ public class PlayerController : MonoBehaviour
     //Animate player if is jumping
     void HandleJumpAnimation()
     {
-        var isOnAir = _isGrounded ? false : true;
-        // if (isOnAir)
-        // {
-        //     _circleCollider.enabled = true;
-        //     _edgeCollider.enabled = false;
-        //     _boxCollider.enabled = false;
-        // }
-        // else
-        // {
-        //     _circleCollider.enabled = false;
-        //     _edgeCollider.enabled = true;
-        //     _boxCollider.enabled = true;
-        // }
-        anim.SetBool("isOnAir", isOnAir);
+        anim.SetBool("isOnAir", !_isGrounded);
     }
 
     //Player wall sliding animation
@@ -366,16 +370,6 @@ public class PlayerController : MonoBehaviour
         var mirror = _isWallClinging ? -1 : 1;
         anim.transform.localScale = new Vector3(mirror, 1, 1);
         anim.SetBool("isWallClinging", _isWallClinging);
-    }
-
-    void OnEnable()
-    {
-        Controls.Enable();
-    }
-
-    void OnDisable()
-    {
-        Controls.Disable();
     }
 
     //Returns current damage
