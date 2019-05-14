@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public int Damage = 1;
     public int MaxHealth = 1;
+    public GameObject DeathEffect;
     int _currentHealth;
     Animator anim;
     Rigidbody2D _rb;
@@ -33,11 +34,17 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("Hit");
         else
         {
-            anim.SetTrigger("Dead");
-            this.enabled = false;
-            _rb.isKinematic = true;
-            _collider.enabled = false;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        anim.SetTrigger("Dead");
+        this.enabled = false;
+        Instantiate(DeathEffect, transform.position + new Vector3(0, 0.1f, 0), transform.rotation);
+        _rb.isKinematic = true;
+        _collider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

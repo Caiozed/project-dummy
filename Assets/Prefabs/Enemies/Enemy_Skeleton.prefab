@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   MaxHealth: 1
+  DeathEffect: {fileID: 5682034029677695016, guid: cb12128d1a9f9c3428c6d8aff79cbd71,
+    type: 3}
 --- !u!1 &3382136547613492366
 GameObject:
   m_ObjectHideFlags: 0
