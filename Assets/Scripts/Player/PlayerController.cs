@@ -7,7 +7,6 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
-    public Player PlayerModel;
     public AudioClip HitSound;
     public Transform EffectsContainer;
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
@@ -15,13 +14,12 @@ public class PlayerController : MonoBehaviour
     public LayerMask _raycastLayerMask;
     [HideInInspector]
     public bool IsAttacking = false;
-    RectTransform HeathFill;
     AudioSource audioSource;
     Rigidbody2D _rb;
     Vector2 _direction, _directionBeforeAttack;
     bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
     float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight;
-    int JumpTimes = 1, _currentHealth, _currentDamage;
+    int JumpTimes = 1;
     Animator anim;
     CircleCollider2D _circleCollider;
     SpriteRenderer _spriteRenderer;
@@ -29,24 +27,14 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D _boxCollider;
     LineRenderer _lineRenderer;
     public static PlayerController PlayerCTRL;
-    public enum PlayerPower
-    {
-        ChargedJump,
-        WallJump
-    }
 
     void Awake()
     {
         PlayerCTRL = this;
-
-
     }
 
     void Start()
     {
-        //Tries to load player data
-        LoadData();
-
         _rb = GetComponentInChildren<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
@@ -54,7 +42,6 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        UpdateHealth();
         HealthManager.Instance.FadeIn();
     }
 
@@ -113,7 +100,7 @@ public class PlayerController : MonoBehaviour
         _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, 0.2f, _raycastLayerMask);
 
         //Checl if player is near a wall
-        if (PlayerModel.HaveWallJump)
+        if (PlayerDataController.Instance.PlayerModel.HaveWallJump)
         {
             _isNearWallLeft = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), -Vector3.right, 0.13f, _raycastLayerMask);
             _isNearWallRight = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), Vector3.right, 0.13f, _raycastLayerMask);
@@ -123,31 +110,14 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded) JumpTimes = 1;
     }
 
-
-    //Load Player Data
-    public void LoadData()
-    {
-        try
-        {
-            PlayerModel = SaveManager.Instance.SaveData.PlayerData;
-            transform.position = PlayerModel.CurrentPosition;
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
-            PlayerModel = new Player();
-        }
-        _currentHealth = PlayerModel.MaxHealth;
-        _currentDamage = PlayerModel.Damage;
-    }
-
     void Jump()
     {
         //Toggle jump
         _btnJumpPressed = !_btnJumpPressed;
 
         //Check if button is pressed and player is on ground and have ability to double jump and is not sliding down walls
-        if (_btnJumpPressed && JumpTimes > 0 && !_isGrounded && PlayerModel.HaveChargedJump && !_isWallClinging)
+        if (_btnJumpPressed && JumpTimes > 0 && !_isGrounded &&
+         PlayerDataController.Instance.PlayerModel.HaveChargedJump && !_isWallClinging)
         {
             JumpTimes = 0;
             // _rb.AddForce(new Vector2(_direction.x, _direction.y/2), ForceMode2D.Impulse);
@@ -254,18 +224,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EnablePower(PlayerPower powerToEnable)
-    {
-        switch (powerToEnable)
-        {
-            case PlayerPower.ChargedJump:
-                PlayerModel.HaveChargedJump = true;
-                break;
-            case PlayerPower.WallJump:
-                PlayerModel.HaveWallJump = true;
-                break;
-        }
-    }
 
     //Calculate and animate player taking damage 
     public void TakeDamage(int damage)
@@ -274,17 +232,17 @@ public class PlayerController : MonoBehaviour
         if (!_isVulnerable)
         {
             //Update health variable
-            _currentHealth -= damage;
+            PlayerDataController.Instance._currentHealth -= damage;
 
             //Update health
-            UpdateHealth();
+            PlayerDataController.Instance.UpdateHealth();
 
             //Turn player invulnerable
             _isVulnerable = true;
             // gameObject.layer = 11;
 
             //Checks for player health 
-            if (_currentHealth <= 0)
+            if (PlayerDataController.Instance._currentHealth <= 0)
             {
                 //Kills player
                 anim.SetBool("IsDead", true);
@@ -315,22 +273,16 @@ public class PlayerController : MonoBehaviour
         // gameObject.layer = 2;
     }
 
-    //Update heath
-    void UpdateHealth()
-    {
-        HealthManager.Instance.SetHealth(_currentHealth);
-    }
-
     IEnumerator Restart()
     {
         HealthManager.Instance.FadeOut();
         yield return new WaitForSeconds(3f);
 
-        LoadData();
+        PlayerDataController.Instance.LoadData();
         yield return new WaitForSeconds(1f);
 
         HealthManager.Instance.FadeIn();
-        UpdateHealth();
+        PlayerDataController.Instance.UpdateHealth();
         this.enabled = true;
         anim.SetBool("IsDead", false);
     }
@@ -375,7 +327,7 @@ public class PlayerController : MonoBehaviour
     //Returns current damage
     public int GetDamage()
     {
-        return _currentDamage;
+        return PlayerDataController.Instance._currentDamage;
     }
 
     //Check for collisions

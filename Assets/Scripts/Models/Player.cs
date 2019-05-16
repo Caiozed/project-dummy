@@ -12,6 +12,7 @@ public class Player
     public bool HaveWallJump = false;
     public int MaxHealth = 3;
     public int Damage = 1;
+    public int SmallSouls = 0;
     // public Vector3 CurrentHealth;
 
 }

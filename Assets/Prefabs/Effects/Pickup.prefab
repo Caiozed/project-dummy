@@ -14303,35 +14303,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5682034029677695016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bfdf70cbd698524f90cac8c11cf9e12, type: 3}
+  m_Script: {fileID: 11500000, guid: 2208494ace8a22b4fb379a82d07a4479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnTriggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 112407874}
-        m_MethodName: InstantiateObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8907150701472370447, guid: 60f50247fcb559742ad7206969ff5342,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5682034029677695016}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  TagToCheck: Player
+  Souls: 10
+  particles: {fileID: 8907150701472370447, guid: 60f50247fcb559742ad7206969ff5342,
+    type: 3}

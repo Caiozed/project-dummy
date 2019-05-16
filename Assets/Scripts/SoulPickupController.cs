@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class EventTrigger : MonoBehaviour
+public class SoulPickupController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public UnityEvent OnTriggerEvent;
-    public string TagToCheck;
+    public int Souls;
+    public GameObject particles;
     void Start()
     {
 
@@ -20,14 +20,11 @@ public class EventTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.CompareTag(TagToCheck))
+        if (other.transform.CompareTag("Player"))
         {
-            OnTriggerEvent.Invoke();
+            Instantiate(particles, transform.position, transform.rotation);
+            UIManager.Instance.UpdateSouls(Souls);
+            Destroy(gameObject);
         }
-    }
-
-    public void InstantiateObject(GameObject obj)
-    {
-        Instantiate(obj, transform.position, transform.rotation);
     }
 }

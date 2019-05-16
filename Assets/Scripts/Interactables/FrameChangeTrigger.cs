@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-public class LevelChangeTrigger : MonoBehaviour
+public class FrameChangeTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     public string AreaName;
@@ -25,7 +25,7 @@ public class LevelChangeTrigger : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             ChangeCamera();
-            MasterManager.Instance.SetText(AreaName);
+            UIManager.Instance.SetText(AreaName);
             MasterManager.Instance.TriggerAnim("LevelTransition");
         }
     }

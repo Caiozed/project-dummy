@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 public class MasterManager : MonoBehaviour
 {
     public static MasterManager Instance;
     public Animator anim;
-    public Text LevelText;
+
     void Awake()
     {
         if (Instance != null)
@@ -17,13 +18,14 @@ public class MasterManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void Update()
+    {
+
+    }
+
     public void TriggerAnim(string triggerName)
     {
         anim.SetTrigger(triggerName);
     }
 
-    public void SetText(string text)
-    {
-        LevelText.text = text;
-    }
 }
