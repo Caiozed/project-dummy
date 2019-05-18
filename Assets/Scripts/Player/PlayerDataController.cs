@@ -55,8 +55,8 @@ public class PlayerDataController : MonoBehaviour
             Debug.Log(e.Message);
             PlayerModel = new Player();
         }
-        _currentHealth = PlayerModel.MaxHealth;
-        _currentDamage = PlayerModel.Damage;
+        ResetHealth();
+        ResetDamage();
     }
 
     public void EnablePower(PlayerPower powerToEnable)
@@ -76,6 +76,17 @@ public class PlayerDataController : MonoBehaviour
     public void UpdateHealth()
     {
         HealthManager.Instance.SetHealth(_currentHealth);
+    }
+
+    public void ResetHealth()
+    {
+        _currentHealth = PlayerModel.MaxHealth;
+        UpdateHealth();
+    }
+
+    public void ResetDamage()
+    {
+        _currentDamage = PlayerModel.Damage;
     }
 }
 

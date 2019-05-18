@@ -12,18 +12,21 @@ public class PlayerController : MonoBehaviour
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
+    public SpriteRenderer PlayerSpriteRenderer, GhostSpriteRenderer;
+    public GameObject deathMarkerObj;
     [HideInInspector]
-    public bool IsAttacking = false;
+    public bool IsAttacking = false, IsDead = false;
     AudioSource audioSource;
     Rigidbody2D _rb;
     Vector2 _direction, _directionBeforeAttack;
-    bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable;
+    bool _btnJumpPressed = false, _isGrounded, _isDucking, _isLookingUp, _isNearWallLeft, _isNearWallRight, _isWallClinging, _isHovering, _isVulnerable = true;
     float currentJumptime, currentJumpHeight, currentWallJumptime, currentWallJumpHeight;
     int JumpTimes = 1;
     Animator anim;
+    SpriteRenderer _currentRenderer;
     CircleCollider2D _circleCollider;
-    SpriteRenderer _spriteRenderer;
     EdgeCollider2D _edgeCollider;
+    EnemyController lastEnemyHit;
     BoxCollider2D _boxCollider;
     LineRenderer _lineRenderer;
     public static PlayerController PlayerCTRL;
@@ -41,8 +44,9 @@ public class PlayerController : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         HealthManager.Instance.FadeIn();
+
+        _currentRenderer = IsDead ? GhostSpriteRenderer : PlayerSpriteRenderer;
     }
 
     void Update()
@@ -84,7 +88,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // if (PauseManager.Instance._isPaused) return;
-
         var x = _direction.x * Speed * Time.deltaTime * 60;
         var y = currentJumpHeight * Time.deltaTime * 60;
 
@@ -156,7 +159,7 @@ public class PlayerController : MonoBehaviour
     //Controls player Attack
     void Attack()
     {
-        if (!IsAttacking && _isGrounded)
+        if (!IsAttacking && _isGrounded && !IsDead)
         {
             _directionBeforeAttack = _direction;
             _direction = Vector2.zero;
@@ -205,10 +208,10 @@ public class PlayerController : MonoBehaviour
             {
                 var lookDirection = _direction.x > 0 ? 0 : 180;
                 var flipX = _direction.x > 0 ? false : true;
-                _spriteRenderer.flipX = flipX;
+                _currentRenderer.flipX = flipX;
 
                 //Change effect Rotation
-                if (_spriteRenderer.flipX)
+                if (_currentRenderer.flipX)
                     EffectsContainer.transform.eulerAngles = new Vector3(0, 180, 0);
                 else
                     EffectsContainer.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -229,7 +232,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         //Checks if player is invulnerable
-        if (!_isVulnerable)
+        if (_isVulnerable)
         {
             //Update health variable
             PlayerDataController.Instance._currentHealth -= damage;
@@ -238,7 +241,7 @@ public class PlayerController : MonoBehaviour
             PlayerDataController.Instance.UpdateHealth();
 
             //Turn player invulnerable
-            _isVulnerable = true;
+            _isVulnerable = false;
             // gameObject.layer = 11;
 
             //Checks for player health 
@@ -266,10 +269,10 @@ public class PlayerController : MonoBehaviour
     {
         for (var i = 0; i < InvunerableBlinks; i++)
         {
-            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, i % 2);
+            _currentRenderer.color = new Color(_currentRenderer.color.r, _currentRenderer.color.g, _currentRenderer.color.b, i % 2);
             yield return new WaitForSeconds(.2f);
         }
-        _isVulnerable = false;
+        _isVulnerable = true;
         // gameObject.layer = 2;
     }
 
@@ -277,13 +280,29 @@ public class PlayerController : MonoBehaviour
     {
         HealthManager.Instance.FadeOut();
         yield return new WaitForSeconds(3f);
+        var newObj = Instantiate(deathMarkerObj, transform.position, transform.rotation);
 
         PlayerDataController.Instance.LoadData();
         yield return new WaitForSeconds(1f);
 
+        IsDead = true;
+        //Update sprite renderes
+        _currentRenderer = GhostSpriteRenderer;
+        GhostSpriteRenderer.enabled = true;
+        PlayerSpriteRenderer.enabled = false;
+
+        //Set enemy souls 
+        lastEnemyHit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        lastEnemyHit.SoulsOnHold = PlayerDataController.Instance.PlayerModel.SmallSouls;
+
         HealthManager.Instance.FadeIn();
+        UIManager.Instance.UpdateSouls(-PlayerDataController.Instance.PlayerModel.SmallSouls);
+
+        //Update health
+        PlayerDataController.Instance._currentHealth -= 2;
         PlayerDataController.Instance.UpdateHealth();
         this.enabled = true;
+        _isVulnerable = true;
         anim.SetBool("IsDead", false);
     }
 
@@ -333,19 +352,45 @@ public class PlayerController : MonoBehaviour
     //Check for collisions
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            var damage = other.transform.GetComponent<EnemyController>().Damage;
-            TakeDamage(damage);
-        }
+
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Enemy"))
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.transform.tag)
         {
-            var damage = other.transform.GetComponent<EnemyController>().Damage;
-            TakeDamage(damage);
+            case "PlayerBody":
+                IsDead = false;
+                GhostSpriteRenderer.enabled = false;
+                PlayerSpriteRenderer.enabled = true;
+                _currentRenderer = PlayerSpriteRenderer;
+                PlayerDataController.Instance.ResetHealth();
+                Destroy(other.gameObject);
+                break;
+            case "Enemy":
+                lastEnemyHit = other.transform.GetComponent<EnemyController>();
+                TakeDamage(lastEnemyHit.Damage);
+                break;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        switch (other.transform.tag)
+        {
+            case "Player":
+                PlayerDataController.Instance.ResetHealth();
+                Destroy(other.gameObject);
+                break;
+            case "Enemy":
+                lastEnemyHit = other.transform.GetComponent<EnemyController>();
+                TakeDamage(lastEnemyHit.Damage);
+                break;
         }
     }
 }

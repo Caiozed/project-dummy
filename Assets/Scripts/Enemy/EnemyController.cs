@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public int Damage = 1;
     public int MaxHealth = 1;
+    public int SoulsOnHold;
     public GameObject DeathEffect;
     int _currentHealth;
     Animator anim;
@@ -42,6 +43,8 @@ public class EnemyController : MonoBehaviour
     {
         anim.SetTrigger("Dead");
         this.enabled = false;
+        Debug.Log(SoulsOnHold);
+        UIManager.Instance.UpdateSouls(SoulsOnHold);
         Instantiate(DeathEffect, transform.position + new Vector3(0, 0.1f, 0), transform.rotation);
         _rb.isKinematic = true;
         _collider.enabled = false;
