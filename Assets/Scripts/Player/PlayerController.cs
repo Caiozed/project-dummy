@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
     public SpriteRenderer PlayerSpriteRenderer, GhostSpriteRenderer;
-    public GameObject deathMarkerObj;
+    public GameObject deathMarkerObj, MagicBall;
     [HideInInspector]
     public bool IsAttacking = false, IsDead = false;
     AudioSource audioSource;
@@ -66,6 +66,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Attack"))
         {
             Attack();
+        }
+
+        if (Input.GetButtonDown("MagicAttack"))
+        {
+            MagicAttack(10);
         }
 
         //Move
@@ -166,6 +171,16 @@ public class PlayerController : MonoBehaviour
             _direction = Vector2.zero;
             IsAttacking = true;
             anim.SetTrigger("Attack");
+        }
+    }
+
+    void MagicAttack(float cost)
+    {
+        var usageCost = PlayerDataController.Instance.CurrentMagic - cost;
+        if (usageCost >= 0)
+        {
+            PlayerDataController.Instance.UpdateMagic(cost);
+            Instantiate(MagicBall, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
         }
     }
 

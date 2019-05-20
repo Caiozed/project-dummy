@@ -1025,6 +1025,8 @@ MonoBehaviour:
   GhostSpriteRenderer: {fileID: 150921092}
   deathMarkerObj: {fileID: 9161704743858208740, guid: 6f272d40838aff243a44410b0d6b3a75,
     type: 3}
+  MagicBall: {fileID: 813281543367507320, guid: 7ea97f12b053c0445a1a404ae34a868b,
+    type: 3}
   IsAttacking: 0
   IsDead: 0
 --- !u!82 &2117829461
@@ -1157,10 +1159,12 @@ MonoBehaviour:
     HaveChargedJump: 0
     HaveWallJump: 0
     MaxHealth: 3
+    MaxMagic: 100
     Damage: 1
     SmallSouls: 0
   _currentHealth: 0
   _currentDamage: 0
+  CurrentMagic: 0
 --- !u!1 &8644042280971966850
 GameObject:
   m_ObjectHideFlags: 0

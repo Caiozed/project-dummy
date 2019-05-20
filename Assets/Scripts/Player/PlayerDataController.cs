@@ -10,6 +10,8 @@ public class PlayerDataController : MonoBehaviour
     public Player PlayerModel;
     [HideInInspector]
     public int _currentHealth, _currentDamage;
+    [HideInInspector]
+    public float CurrentMagic;
     public static PlayerDataController Instance;
     public enum PlayerPower
     {
@@ -55,6 +57,7 @@ public class PlayerDataController : MonoBehaviour
             Debug.Log(e.Message);
             PlayerModel = new Player();
         }
+        CurrentMagic = PlayerModel.MaxMagic;
         ResetHealth();
         ResetDamage();
     }
@@ -77,6 +80,13 @@ public class PlayerDataController : MonoBehaviour
     {
         HealthManager.Instance.SetHealth(_currentHealth);
     }
+
+    public void UpdateMagic(float cost)
+    {
+        PlayerDataController.Instance.CurrentMagic -= cost;
+        UIManager.Instance.UpdateMagicUI();
+    }
+
 
     public void ResetHealth()
     {

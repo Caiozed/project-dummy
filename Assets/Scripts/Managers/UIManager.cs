@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [Header("Small Souls")]
     public Image SoulsImage;
     public Text SmallSoulsText;
+    public Image MagicFill;
     bool _isMapOpen;
     void Awake()
     {
@@ -54,6 +55,13 @@ public class UIManager : MonoBehaviour
         x => { SmallSoulsText.text = x.ToString(); },
         PlayerDataController.Instance.PlayerModel.SmallSouls, 1f);
 
+    }
+
+    public void UpdateMagicUI()
+    {
+        var currentValue = (PlayerDataController.Instance.CurrentMagic / PlayerDataController.Instance.PlayerModel.MaxMagic);
+        Debug.Log(currentValue);
+        MagicFill.transform.DOScaleX(currentValue, 0.5f);
     }
 
     public void SetText(string text)
