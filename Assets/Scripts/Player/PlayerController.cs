@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
         if (usageCost >= 0)
         {
             PlayerDataController.Instance.UpdateMagic(cost);
-            Instantiate(MagicBall, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
+            Instantiate(MagicBall, EffectsContainer.position + new Vector3(0, 0.2f, 0), EffectsContainer.rotation);
         }
     }
 
