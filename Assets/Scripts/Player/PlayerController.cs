@@ -391,6 +391,12 @@ public class PlayerController : MonoBehaviour
                 lastEnemyHit = other.transform.GetComponent<EnemyController>();
                 TakeDamage(lastEnemyHit.Damage);
                 break;
+            case "Store":
+                if (Input.GetButton("Action"))
+                {
+                    UIManager.Instance.Store.SetActive(true);
+                }
+                break;
         }
     }
 
@@ -405,6 +411,24 @@ public class PlayerController : MonoBehaviour
             case "Enemy":
                 lastEnemyHit = other.transform.GetComponent<EnemyController>();
                 TakeDamage(lastEnemyHit.Damage);
+                break;
+            case "Store":
+                if (Input.GetButtonDown("Action"))
+                {
+                    StoreController.Instance.IsOpen = !StoreController.Instance.IsOpen;
+                    UIManager.Instance.Store.SetActive(StoreController.Instance.IsOpen);
+                }
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        switch (other.transform.tag)
+        {
+            case "Store":
+                StoreController.Instance.IsOpen = false;
+                UIManager.Instance.Store.SetActive(StoreController.Instance.IsOpen);
                 break;
         }
     }

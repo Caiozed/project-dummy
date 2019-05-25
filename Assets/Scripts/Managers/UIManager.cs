@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class UIManager : MonoBehaviour
     [Space]
     [Header("Small Souls")]
     public Image SoulsImage;
-    public Text SmallSoulsText;
+    public TextMeshProUGUI SmallSoulsText;
     public Image MagicFill;
+    [Space]
+    [Header("Store")]
+    public TextMeshProUGUI ItemDescription;
+    public GameObject Store;
     bool _isMapOpen;
     void Awake()
     {
@@ -55,6 +60,7 @@ public class UIManager : MonoBehaviour
         x => { SmallSoulsText.text = x.ToString(); },
         PlayerDataController.Instance.PlayerModel.SmallSouls, 1f);
 
+        StoreController.Instance.CurrentSoulsText.text = PlayerDataController.Instance.PlayerModel.SmallSouls.ToString();
     }
 
     public void UpdateMagicUI()

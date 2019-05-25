@@ -5,6 +5,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class MenuController : MonoBehaviour
 {
     public Image FadeImage;
@@ -33,12 +34,12 @@ public class MenuController : MonoBehaviour
             if (File.Exists($"{Application.persistentDataPath}/SaveData{x}.dat"))
             {
                 var file = SaveManager.Instance.LoadModel<SaveData>($"SaveData{x}.dat");
-                Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n {file.UpdatedOn}";
+                Slots[x].GetComponentInChildren<TextMeshProUGUI>().text = $"Slot {x + 1}\n {file.UpdatedOn}";
                 Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { StartCoroutine(LoadGame(x)); });
             }
             else
             {
-                Slots[x].GetComponentInChildren<Text>().text = $"Slot {x + 1}\n New Game";
+                Slots[x].GetComponentInChildren<TextMeshProUGUI>().text = $"Slot {x + 1}\n New Game";
                 Slots[x].GetComponentInChildren<Button>().onClick.AddListener(delegate { StartCoroutine(NewGame(x)); });
             }
         }
