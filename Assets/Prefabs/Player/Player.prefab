@@ -1013,7 +1013,7 @@ MonoBehaviour:
   HitSound: {fileID: 0}
   EffectsContainer: {fileID: 4797758898723895976}
   Speed: 1.3
-  JumpHeight: 2
+  JumpHeight: 1.5
   JumpTime: 0.15
   WallJumpTime: 0
   InvunerableBlinks: 10
@@ -1162,6 +1162,7 @@ MonoBehaviour:
     MaxMagic: 100
     Damage: 1
     SmallSouls: 0
+    CollectedBossSouls: []
   _currentHealth: 0
   _currentDamage: 0
   CurrentMagic: 0

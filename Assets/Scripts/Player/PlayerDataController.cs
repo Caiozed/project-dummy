@@ -29,7 +29,7 @@ public class PlayerDataController : MonoBehaviour
         //Tries to load player data
         LoadData();
         UpdateHealth();
-        HealthManager.Instance.FadeIn();
+        UIManager.Instance.FadeIn();
     }
 
     void Update()

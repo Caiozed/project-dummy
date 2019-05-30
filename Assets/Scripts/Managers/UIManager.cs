@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
     [Space]
     public Image PlayerMapPosition;
     public Image[] Map;
-    public Text LevelText;
+    [Space]
+    [Header("Messages")]
+    public Image MessageImage;
+    public TextMeshProUGUI Messages;
     [Space]
     [Header("Small Souls")]
     public Image SoulsImage;
@@ -19,6 +22,7 @@ public class UIManager : MonoBehaviour
     [Space]
     [Header("Store")]
     public TextMeshProUGUI ItemDescription;
+    public Image Background;
     public GameObject Store;
     bool _isMapOpen;
     void Awake()
@@ -63,15 +67,51 @@ public class UIManager : MonoBehaviour
         StoreController.Instance.CurrentSoulsText.text = PlayerDataController.Instance.PlayerModel.SmallSouls.ToString();
     }
 
+    public void UpdateBossSouls(BossSoul soul)
+    {
+        PlayerDataController.Instance.PlayerModel.CollectedBossSouls.Add(soul);
+
+        var seq = DOTween.Sequence();
+        Color newColor = UIManager.Instance.MessageImage.color;
+        newColor.a = .8f;
+        seq.Append(MessageImage.DOColor(newColor, 3f))
+                    .AppendInterval(2)
+                    .AppendCallback(() =>
+                    {
+                        newColor.a = 0;
+                        MessageImage.DOColor(newColor, 3f);
+                    });
+        SetText(soul.Name);
+    }
+
+
     public void UpdateMagicUI()
     {
         var currentValue = (PlayerDataController.Instance.CurrentMagic / PlayerDataController.Instance.PlayerModel.MaxMagic);
-        Debug.Log(currentValue);
         MagicFill.transform.DOScaleX(currentValue, 0.5f);
     }
 
     public void SetText(string text)
     {
-        LevelText.text = text;
+        Messages.text = text;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(Messages.DOColor(new Color(1, 1, 1, 1), 3f))
+        .AppendInterval(2)
+        .AppendCallback(() => Messages.DOColor(new Color(1, 1, 1, 0), 3f));
+    }
+
+    public void FadeIn()
+    {
+        Background.DOColor(new Color(Background.color.r, Background.color.g, Background.color.b, 0f), 2f);
+    }
+
+    public void FadeOut()
+    {
+        Background.DOColor(new Color(Background.color.r, Background.color.g, Background.color.b, 1f), 2f);
+    }
+
+    public void FadeBackground(float alpha, float time)
+    {
+        Background.DOColor(new Color(Background.color.r, Background.color.g, Background.color.b, alpha), time);
     }
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 public class HealthManager : MonoBehaviour
 {
 
     public static HealthManager Instance;
     public Transform HealthContainer;
-    public Image FadeImage;
     public GameObject healthObj;
     string rootPath;
     int currentHealth;
@@ -44,15 +44,5 @@ public class HealthManager : MonoBehaviour
             GameObject obj = Instantiate(healthObj, HealthContainer.position + new Vector3(35 * i, 0, 0), HealthContainer.rotation);
             obj.transform.SetParent(HealthContainer);
         }
-    }
-
-    public void FadeIn()
-    {
-        FadeImage.CrossFadeAlpha(0.1f, 2, true);
-    }
-
-    public void FadeOut()
-    {
-        FadeImage.CrossFadeAlpha(1, 2, true);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemyController : MonoBehaviour
     public int MaxHealth = 1;
     public int SoulsOnHold;
     public GameObject DeathEffect;
+    public UnityEvent OnDeath;
+    bool IsDead;
     int _currentHealth;
     Animator anim;
     Rigidbody2D _rb;
@@ -41,7 +44,10 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        if (IsDead) return;
         anim.SetTrigger("Dead");
+        OnDeath.Invoke();
+        IsDead = true;
         this.enabled = false;
         if (SoulsOnHold > 0)
             UIManager.Instance.UpdateSouls(SoulsOnHold);
@@ -54,6 +60,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.transform.CompareTag("PlayerWeapon"))
         {
+            Debug.Log("enter");
             TakeDamage(other.transform.root.GetComponent<PlayerController>().GetDamage());
         }
     }

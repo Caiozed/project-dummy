@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 // using ActionCode2D.Renderers;
 using System;
 public class PlayerController : MonoBehaviour
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
         _lineRenderer = GetComponentInChildren<LineRenderer>();
-        HealthManager.Instance.FadeIn();
+        UIManager.Instance.FadeIn();
 
         _currentRenderer = IsDead ? GhostSpriteRenderer : PlayerSpriteRenderer;
     }
@@ -293,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Restart()
     {
-        HealthManager.Instance.FadeOut();
+        UIManager.Instance.FadeOut();
         yield return new WaitForSeconds(3f);
         var newObj = Instantiate(deathMarkerObj, transform.position, transform.rotation);
 
@@ -310,7 +311,7 @@ public class PlayerController : MonoBehaviour
         lastEnemyHit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
         lastEnemyHit.SoulsOnHold = PlayerDataController.Instance.PlayerModel.SmallSouls;
 
-        HealthManager.Instance.FadeIn();
+        UIManager.Instance.FadeIn();
         UIManager.Instance.UpdateSouls(-PlayerDataController.Instance.PlayerModel.SmallSouls);
 
         //Update health
@@ -416,6 +417,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonDown("Action"))
                 {
                     StoreController.Instance.IsOpen = !StoreController.Instance.IsOpen;
+                    UIManager.Instance.FadeBackground(StoreController.Instance.IsOpen ? 0.8f : 0, 1);
                     UIManager.Instance.Store.SetActive(StoreController.Instance.IsOpen);
                 }
                 break;
@@ -428,6 +430,8 @@ public class PlayerController : MonoBehaviour
         {
             case "Store":
                 StoreController.Instance.IsOpen = false;
+                UIManager.Instance.FadeBackground(0, 1);
+
                 UIManager.Instance.Store.SetActive(StoreController.Instance.IsOpen);
                 break;
         }

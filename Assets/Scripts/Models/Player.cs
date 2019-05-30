@@ -14,6 +14,7 @@ public class Player
     public float MaxMagic = 100;
     public int Damage = 1;
     public int SmallSouls = 0;
+    public List<BossSoul> CollectedBossSouls = new List<BossSoul>();
     // public Vector3 CurrentHealth;
 
 }
