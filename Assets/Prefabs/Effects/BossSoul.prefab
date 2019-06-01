@@ -9534,7 +9534,7 @@ GameObject:
   - component: {fileID: 3191511344096605769}
   - component: {fileID: 3191511344096605768}
   - component: {fileID: 7102217775794098976}
-  - component: {fileID: 7102217775794098977}
+  - component: {fileID: -5195434123100406923}
   m_Layer: 0
   m_Name: BossSoul
   m_TagString: Untagged
@@ -14303,7 +14303,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.04
---- !u!114 &7102217775794098977
+--- !u!114 &-5195434123100406923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14312,11 +14312,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3191511344096605771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2208494ace8a22b4fb379a82d07a4479, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f29243878d97bb4da7acb14fd9dddfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Souls: 10
   particles: {fileID: 3271569956921048435, guid: 034d8077a9802b24cb828c73becfbe9e,
     type: 3}
-  CurrentSoulType: 2
-  bossName: Big Skeleton
+  CurrentPowerType: 1
+  BossName: SKELETON KING
+  PowerName: DOUBLE JUMP

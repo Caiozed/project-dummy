@@ -51,6 +51,7 @@ public class EnemyController : MonoBehaviour
         this.enabled = false;
         if (SoulsOnHold > 0)
             UIManager.Instance.UpdateSouls(SoulsOnHold);
+
         Instantiate(DeathEffect, transform.position + new Vector3(0, 0.1f, 0), transform.rotation);
         _rb.isKinematic = true;
         _collider.enabled = false;
@@ -60,7 +61,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.transform.CompareTag("PlayerWeapon"))
         {
-            Debug.Log("enter");
+            PlayerController.Instance.BladeImpactEffect.Play();
             TakeDamage(other.transform.root.GetComponent<PlayerController>().GetDamage());
         }
     }

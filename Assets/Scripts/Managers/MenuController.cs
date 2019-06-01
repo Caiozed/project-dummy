@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Models;
 public class MenuController : MonoBehaviour
 {
     public Image FadeImage;

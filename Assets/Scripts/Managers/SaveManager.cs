@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using Models;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;

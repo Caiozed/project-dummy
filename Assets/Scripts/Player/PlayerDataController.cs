@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// using ActionCode2D.Renderers;
+using Models;
 using System;
 public class PlayerDataController : MonoBehaviour
 {
@@ -13,11 +13,6 @@ public class PlayerDataController : MonoBehaviour
     [HideInInspector]
     public float CurrentMagic;
     public static PlayerDataController Instance;
-    public enum PlayerPower
-    {
-        ChargedJump,
-        WallJump
-    }
 
     void Awake()
     {
@@ -54,7 +49,6 @@ public class PlayerDataController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(e.Message);
             PlayerModel = new Player();
         }
         CurrentMagic = PlayerModel.MaxMagic;
@@ -62,17 +56,9 @@ public class PlayerDataController : MonoBehaviour
         ResetDamage();
     }
 
-    public void EnablePower(PlayerPower powerToEnable)
+    public void EnablePower(Powers powerToEnable)
     {
-        switch (powerToEnable)
-        {
-            case PlayerPower.ChargedJump:
-                PlayerModel.HaveChargedJump = true;
-                break;
-            case PlayerPower.WallJump:
-                PlayerModel.HaveWallJump = true;
-                break;
-        }
+        PlayerModel.CollectedPowers.Add(powerToEnable);
     }
 
     //Update heath

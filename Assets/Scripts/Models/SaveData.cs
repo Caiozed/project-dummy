@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System;
 
-[Serializable]
-public class SaveData
+namespace Models
 {
-    public int Slot;
-    public string UpdatedOn;
-    public Player PlayerData;
-
-    public SaveData(int slot = 0)
+    [Serializable]
+    public class SaveData
     {
-        UpdatedOn = Utils.TimeNow();
-        this.Slot = slot;
-        PlayerData = new Player();
+        public int Slot;
+        public string UpdatedOn;
+        public Player PlayerData;
+
+        public SaveData(int slot = 0)
+        {
+            UpdatedOn = Utils.TimeNow();
+            this.Slot = slot;
+            PlayerData = new Player();
+        }
     }
 }

@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Models;
 // using ActionCode2D.Renderers;
 using System;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public AudioClip HitSound;
+    [Space]
+    [Header("Effects")]
     public Transform EffectsContainer;
+    public ParticleSystem BladeImpactEffect;
+    [Space]
+    [Header("Speed & Height")]
     public float Speed, JumpHeight, JumpTime, WallJumpTime, InvunerableBlinks;
     public Vector2 WallJumpForce;
     public LayerMask _raycastLayerMask;
@@ -30,11 +36,11 @@ public class PlayerController : MonoBehaviour
     EnemyController lastEnemyHit;
     BoxCollider2D _boxCollider;
     LineRenderer _lineRenderer;
-    public static PlayerController PlayerCTRL;
+    public static PlayerController Instance;
 
     void Awake()
     {
-        PlayerCTRL = this;
+        Instance = this;
     }
 
     void Start()
@@ -57,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump"))
         {
-            Jump();
+            _btnJumpPressed = true;
         }
         else
         {
@@ -85,6 +91,7 @@ public class PlayerController : MonoBehaviour
             _direction.x = 0;
         }
 
+        Jump();
         //Animation updates
         HandleMoveAnimation();
         HandleJumpAnimation();
@@ -106,10 +113,10 @@ public class PlayerController : MonoBehaviour
         WallJumpUpdate();
 
         //Check if player is on ground
-        _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, 0.2f, _raycastLayerMask);
+        _isGrounded = Physics2D.CircleCast(transform.position, 0.05f, -Vector3.up, 0, _raycastLayerMask);
 
         //Checl if player is near a wall
-        if (PlayerDataController.Instance.PlayerModel.HaveWallJump)
+        if (PlayerDataController.Instance.PlayerModel.HavePower(Powers.WallJump))
         {
             _isNearWallLeft = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), -Vector3.right, 0.13f, _raycastLayerMask);
             _isNearWallRight = Physics2D.Raycast(transform.position + new Vector3(0, 0.11f, 0), Vector3.right, 0.13f, _raycastLayerMask);
@@ -119,19 +126,27 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded) JumpTimes = 1;
     }
 
+    void OnDrawGizmos()
+    {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 0.05f);
+    }
+
     void Jump()
     {
         //Toggle jump
-        _btnJumpPressed = !_btnJumpPressed;
-
+        var DoubleJump = false;
+        if (Input.GetButtonDown("Jump")) DoubleJump = true;
         //Check if button is pressed and player is on ground and have ability to double jump and is not sliding down walls
-        if (_btnJumpPressed && JumpTimes > 0 && !_isGrounded &&
-         PlayerDataController.Instance.PlayerModel.HaveChargedJump && !_isWallClinging)
+        if (DoubleJump && JumpTimes > 0 && !_isGrounded &&
+         PlayerDataController.Instance.PlayerModel.HavePower(Powers.DoubleJump) && !_isWallClinging)
         {
             JumpTimes = 0;
-            // _rb.AddForce(new Vector2(_direction.x, _direction.y/2), ForceMode2D.Impulse);
+            _rb.velocity = (new Vector2(_direction.x, 0));
             currentJumptime = JumpTime;
-            currentJumpHeight = JumpHeight;
+            currentJumpHeight = JumpHeight * 1.5f;
+            DoubleJump = false;
         }
         //Normal jump
         else if (_isGrounded && _btnJumpPressed)
