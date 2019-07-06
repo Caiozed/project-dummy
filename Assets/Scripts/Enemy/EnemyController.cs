@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public int SoulsOnHold;
     public GameObject DeathEffect;
     public UnityEvent OnDeath;
-    bool IsDead;
+    public bool IsDead;
     int _currentHealth;
     Animator anim;
     Rigidbody2D _rb;
